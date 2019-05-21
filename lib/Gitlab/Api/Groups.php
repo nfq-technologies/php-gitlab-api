@@ -206,6 +206,10 @@ class Groups extends AbstractApi
             ->setAllowedTypes('starred', 'bool')
             ->setNormalizer('starred', $booleanNormalizer)
         ;
+        $resolver->setDefined('with_shared')
+            ->setAllowedTypes('with_shared', 'bool')
+            ->setNormalizer('with_shared', $booleanNormalizer)
+        ;
 
         return $this->get('groups/'.$this->encodePath($id).'/projects', $resolver->resolve($parameters));
     }
